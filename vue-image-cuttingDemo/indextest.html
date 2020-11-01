@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover">
+    <title>Title</title>
+</head>
+<style>
+    [v-cloak]{
+        display: none;
+    }
+    li{list-style:none;}
+    .gq-display{
+        display: -webkit-box;     /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+        display: -moz-box;        /* Firefox 17- */
+        display: -webkit-flex;    /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+        display: -moz-flex;       /* Firefox 18+ */
+        display: -ms-flexbox;     /* IE 10 */
+        display: flex;            /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    #app{
+        background: #1D6FD7;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        /*background-image: url("http://www.hmltec.com/720/hsjunyun/img/index0bg.f0ac1de1.png"),url("http://www.hmltec.com/720/hsjunyun/img/bgcircular.142a98f2.png");*/
+        /*background-size: contain,contain;*/
+        /*background-repeat: no-repeat;*/
+        /*background-position: ;*/
+    }
+    .backgroundImg{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    .imgtitle{
+        width: 80%;
+        height: auto;
+        position: absolute;
+        left: 10%;
+        top: 10%;
+    }
+    .go{
+        position: absolute;
+        left: 0%;
+        bottom: 3%;
+        width: 100%;
+        height: 10%;
+    }
+    .getinto{
+        width: 100%;
+        height: 50%;
+    }
+    .Note{
+        width: 100%;
+        height: 50%;
+        justify-content : center;
+        align-items: center;
+        color: #fff;
+        font-size: 15px;
+    }
+    .goImg{
+        height: 60%;
+        margin: 0 5%;
+    }
+    .leftTriangle{
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid #ffffff;
+    }
+    .RightTriangle{
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 10px solid #ffffff;
+    }
+    .getintoCenter{
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .arrowLeft{
+        width: 7%;
+        justify-content: space-between;
+        position: relative;
+        left: 0%;
+        animation:shakingLeft 1s;
+        animation-direction:alternate;
+        animation-iteration-count: infinite;
+    }
+    .arrowRight{
+        width: 7%;
+        justify-content: space-between;
+        position: relative;
+        right: 0%;
+        animation:shakingRight 1s;
+        animation-direction:alternate;
+        animation-iteration-count: infinite;
+    }
+    @keyframes shakingLeft
+    {
+        from {left:-3%;}
+        to {left: 0%;}
+    }
+    @keyframes shakingRight
+    {
+        from {right:-3%;}
+        to {right: 0%;}
+    }
+    .characterAnimation{
+        width: 100%;
+        height: 45%;
+        position: absolute;
+        left: 0%;
+        top: 33%;
+        overflow: hidden;
+        justify-content: center;
+        z-index: 5;
+    }
+    .characterAnimation .characterAnimationview{
+        height: 100%;
+        width: 35%;
+        position: relative;
+        justify-content: center;
+        overflow: hidden;
+        z-index: 2;
+    }
+    .characterAnimation img{
+        height: 100%;
+        width: auto;
+        position: relative;
+        top: 0%;
+        left: 0;
+    }
+    .roulette{
+        width: 100%;
+        height: 47%;
+        position: absolute;
+        top: 53%;
+        left: 0%;
+        transition: all 0.5s linear;
+        overflow: hidden;
+        /*background-image: url("http://www.hmltec.com/720/hsjunyun/img/bgcircular.142a98f2.png");*/
+        /*background-size: 260%;*/
+        /*background-repeat: no-repeat;*/
+        /*background-position: -78vw -6vh;*/
+    }
+    .Discbase{
+        z-index: 1;
+        height: 60%;
+        /*border: 1px solid red;*/
+        position: relative;
+        top: 3vh;
+
+        /*background-image: url("http://www.hmltec.com/720/hsjunyun/img/slideBg.4d36b6f7.png");*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: 120%;*/
+        /*background-position: 47% 57%;*/
+    }
+    .rouletteBg{
+        position: absolute;
+        left: -62%;
+        width: 228%;
+        height: 210%;
+        pointer-events: none;
+    }
+    .rouletteBase{
+        width: 118%;
+        position: absolute;
+        top: -44%;
+        left: -9%;
+        height: 170%;
+        pointer-events: none;
+        z-index: 2;
+    }
+    .Discbase ul{
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+    .Discbase li{
+        width: 21%;
+        height: auto;
+        /*border: 1px solid red;*/
+        position: absolute;
+        z-index: 0;
+    }
+    .Discbase li img{
+        width: 100%;
+    }
+
+</style>
+<body>
+    <div id="app" v-cloak>
+        <img class="imgtitle" src="http://www.hmltec.com/720/hsjunyun/img/index0Logo.8e8dafc3.png" alt="">
+        <img class="backgroundImg" :style="{top:gbImgTop+'%'}" src="http://www.hmltec.com/720/hsjunyun/img/index0bg.f0ac1de1.png" alt="">
+        <div class="gq-display characterAnimation">
+            <div class="characterAnimationview" :style="{width:animationImgDivision+'px'}">
+                <img @load="adaptation" :style="{left:animationImgLeft+'px'}" id="animationImg" src="http://www.hmltec.com/720/hsjunyun/img/lxg3.13b1844b.png" alt="">
+            </div>
+        </div>
+        <div class="go" v-show="goShow">
+            <div class="getinto">
+                <div class="getintoCenter gq-display">
+                    <div class="gq-display arrowLeft">
+                        <div class="leftTriangle"></div>
+                        <div class="leftTriangle"></div>
+                    </div>
+                    <img @click="go" class="goImg" src="data:image/png;base64,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" alt="">
+                    <div class="gq-display arrowRight">
+                        <div class="RightTriangle"></div>
+                        <div class="RightTriangle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Note gq-display">
+                洪山区融媒体中心 | 武汉禾木林科技
+            </div>
+        </div>
+        <div class="roulette" :style="{top:rouletteTop+'%'}">
+            <img class="rouletteBg" src="http://www.hmltec.com/720/hsjunyun/img/bgcircular.142a98f2.png" alt="">
+            <div class="Discbase">
+                <img class="rouletteBase" src="http://www.hmltec.com/720/hsjunyun/img/slideBg.4d36b6f7.png" alt="">
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            list:[
+                {name:"军运场馆",url:"http://www.hmltec.com/720/hsjunyun/img/slideList0.95bfb93a.png",translate:"rotateY(0deg) translateZ(275px) translateY(4%) translateX(79%)"},
+                {name:"保障路线",url:"http://www.hmltec.com/720/hsjunyun/img/slideList4.352e01d9.png",translateX:"6vw",translateY:"9vh",zoom:"1"},
+                {name:"休闲片区",url:"http://www.hmltec.com/720/hsjunyun/img/slideList3.548ed339.png",translateX:"14%",translateY:"-11%",zoom:"1"},
+                {name:"接待酒店",url:"http://www.hmltec.com/720/hsjunyun/img/slideList2.7967a49f.png",translateX:"61%",translateY:"-11%",zoom:"1"},
+                {name:"交通枢纽",url:"http://www.hmltec.com/720/hsjunyun/img/slideList1.423538db.png",translateX:"71%",translateY:"23%",zoom:"1"}
+            ],
+            goShow:true,
+            animationImgDivision:"",
+            animationImgWidth:null,
+            animationImgLeft:0,
+            rouletteTop:100,
+            gbImgTop:50
+        },
+        methods:{
+            adaptation(){
+                var width = document.getElementById("animationImg").width;
+                this.animationImgWidth = width;
+                this.animationImgDivision = width / 81;
+            },
+            go(){
+                var count = 0;
+                this.rouletteTop = 59;
+                this.gbImgTop = 25;
+                this.goShow = false;
+                var time = setInterval(()=>{
+                    count = count + 1;
+                    if(count <= 80){
+                        this.animationImgLeft = -(this.animationImgDivision * count);
+                    }else{
+                        clearInterval(time);
+                    }
+                },30)
+            }
+        }
+    })
+</script>
+</html>
